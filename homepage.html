@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Startup</title>
+  <style>
+    #table {
+      display: table;
+      width: 100%;
+    }
+    #tableRow {
+      display: table-row;
+    }
+    #button {
+      display: table-cell;
+      background-color: #ededed;
+      height: 5em;
+      width: 15em;
+      text-align: center;
+    }
+    #cell {
+      display: table-cell;
+    }
+    body {
+      font-family: 'Verdana';
+      background-color: #ffffff;
+    }
+    p.heading {
+      color: 333333;
+      text-align: center;
+      font-size: 2em;
+      line-height: 2.5em;
+    }
+    p.link {
+      color: #000000;
+      font-size: 1.25em;
+    }
+    #time {
+      font-size: 5em;
+      font-family: 'Comic Sans MS';
+      margin: auto;
+    }
+    #timecounter {
+      font-size: 2em;
+      font-family: 'Comic Sans MS';
+      margin: auto;
+    }
+    #cal {
+      font-size: 2em;
+      font-family: 'Comic Sans MS';
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <center>
+  <p class="heading">Startup Page</p>
+  <div id="table">
+    <div id="tableRow">
+      <div id="button"><p class="link">Google <b>C</b>lassroom</div>
+      <div id="button"><p class="link"><b>H</b>armony</div>
+      <div id="button"><p class="link"><b>I</b>XL</div>
+      <div id="button"><p class="link"><b>B</b>ig Ideas Math</div>
+      <div id="button"><p class="link">Pearson <b>R</b>ealize</div>
+      <div id="button"><p class="link">PhET <b>S</b>ims</div>
+      <div id="button"><p class="link">New <b>L</b>aTeX Document</div>
+      <div id="button"><p class="link"><b>P</b>andora</div>
+    </div>
+  </div>
+    <div id="table">
+      <div id="tableRow">
+        <div id="cell">
+          <p id="timecounter">Time:</p>
+          <p id="time"></p>
+          <p id="cal"></p>
+        </div>
+     </div>
+    </div>
+ <img src="https://preview.ibb.co/cBkURp/New_Project.gif" style="position: fixed; bottom: 0px; right: 0px;">
+    <script>
+     var isWrite;
+      document.addEventListener('keypress', (event) => {
+       const keyName = event.key;
+        if (keyName == 'h') {window.open("https://harmony.ncp.k12.in.us/familyaccess.nsf/hello.xsp");};
+        if (keyName == 'i') {window.open("https://www.ixl.com/");};
+        if (keyName == 'b') {window.open("https://www.bigideasmath.com/BIM/login");};
+        if (keyName == 'r') {window.open("https://www.pearsonrealize.com/index.html#/");};
+        if (keyName == 's') {window.open("https://phet.colorado.edu/en/simulations/category/new");};
+        if (keyName == 'l') {window.open("https://www.overleaf.com/docs?rich_text=true&template=overleaf");};
+        if (keyName == 'c') {window.open("https://classroom.google.com");};
+        if (keyName == 'p') {window.open("https://pandora.com");};
+      });
+      var tInt = window.setInterval(updateTime, 100);
+      var clock = document.getElementById('time');
+      var cal = document.getElementById('cal');
+      var date = new Date();
+      function updateTime () {
+        updateClock();
+        updateDate();
+      }
+      function updateClock () {
+        var hour = date.getHours();
+        var minute = date.getMinutes();
+        if (hour > 12) {hour -= 12;}
+        if (minute < 10) {minute = '0' + minute};
+        clock.innerHTML = (hour + ':' + minute);
+      }
+     function updateDate () {
+        var weekday = date.getDay();
+        if (weekday == 1) {weekday = 'Sunday';}
+        if (weekday == 2) {weekday = 'Tuesday';}
+        if (weekday == 3) {weekday = 'Wednesday';}
+        if (weekday == 4) {weekday = 'Thursday';}
+        if (weekday == 5) {weekday = 'Friday';}
+        if (weekday == 6) {weekday = 'Saturday';}
+        var day = date.getDate();
+        var month = date.getMonth();
+        if (month == 0) {month = 'January'}
+        if (month == 1) {month = 'February'}
+        if (month == 2) {month = 'March'}
+        if (month == 3) {month = 'April'}
+        if (month == 4) {month = 'May'}
+        if (month == 5) {month = 'June'}
+        if (month == 6) {month = 'July'}
+        if (month == 7) {month = 'August'}
+        if (month == 8) {month = 'September'}
+        if (month == 9) {month = 'October'}
+        if (month == 10) {month = 'November'}
+        if (month == 11) {month = 'December'}
+        cal.innerHTML = (weekday + ', ' + day + ' ' + month);
+      }
+    </script>
+</body>
+</html>
